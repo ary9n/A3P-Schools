@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<hmtl>
+
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="demo.js"></script>
+        <link href="demo.css" rel="stylesheet">
+        <script src="//unpkg.com/alpinejs" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.3.4/dist/flowbite.min.css" />
+        <title>A3P Schools - Java Level 3</title>
+    </head>
+
+    <body>
+        <!-- The menu can be opened from anywhere by dispatching an event -->
+
+        <div class="min-h-screen bg-gray-100">
+
+            <header class="text-gray-600 body-font sticky top-0">
+                <div class="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center bg-gray-900">
+                    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                        <span class="ml-3 text-xl text-white">A3P Schools</span>
+                    </a>
+                    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-lg justify-center">
+                        <a class="mr-5 hover:underline text-white" href="homepage.html">Home</a>
+                        <a class="mr-5 hover:underline text-white" href="">Voice Assistant</a>
+                        <a class="mr-5 hover:underline text-white" href="https://college-daap.vercel.app/" target="_blank">Forum</a>
+                        <a class="mr-5 hover:underline text-white" href="">Text to Speech</a>
+                        <a class="mr-5 hover:underline text-white" x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}">Chatbot</a>
+                    </nav>
+                    <button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}">
+                        <img src="https://img.icons8.com/plasticine/50/000000/chat--v1.png"/>    
+                    </button>
+                </div>
+            </header>
+
+            <div class="flex flex-row">
+                <div class="basis-1/6 bg-slate-300 border-r-2 ">
+                    <!-- Dropdown 1-->
+                    <button id="dropdownButton" data-dropdown-toggle="dropdown" class="m-5 text-white bg-gray-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        type="button">Select Level
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div id="dropdown" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                        <ul class="py-1" aria-labelledby="dropdownButton">
+                            <li>
+                                <a href="demo.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Level 1</a>
+                            </li>
+                            <li>
+                                <a href="javaLevel2.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Level 2</a>
+                            </li>
+                            <li>
+                                <a href="javaLevel3.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Level 3</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!--Dropdown 2
+                    <div class="mt-6 mx-3">
+                        <select class="text-xs bg-gray-900 text-white" id="dropdown" required onchange="showDiv(this)">
+                            <option selected value="l1">Level 1</option>
+                            <option value="l2">Level 2</option>
+                            <option value="l3">Level 3</option>
+                        </select>
+                    </div>
+                -->
+
+                    <div id="contents" class="ml-10 mb-5">
+                        <div id="level1" class="">
+                            <h2 class="text-xl my-5">
+                                Level 3:
+                            </h2>
+                            <ol class="list-decimal">
+                                <li>
+                                    <a href="#packages">Packages</a>
+                                </li>
+                                <li>
+                                    <a href="#exception-handling">Exception Handling</a>
+                                </li>
+                                <li>
+                                    <a href="#threads">Threads</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="basis-5/6 bg-slate-200 p-8 overflow-hidden">
+                    <div>
+
+                        <h1 class="main-content-heading">
+                            Level 3
+                        </h1>
+                        <h2 class="main-content-heading">
+                            Packages
+                        </h2>
+                        <p class="main-content" id="packages"> A package in Java is used to group related classes. Think of it as a folder in a file directory.
+                            <br>We use packages to avoid name conflicts, and to write a better maintainable code.
+                            <br>Packages are divided into two categories:
+                            <br>
+                            <ul class="list-disc">
+                                <li>Built-in Packages (packages from the Java API) </li>
+                                <li>User-defined Packages (create your own packages) </li>
+                            </ul>
+                            <br>
+                            <br>
+
+                            <b>Built-In Packages</b><br> The Java API is a library of prewritten classes, that are free to use, included in the Java Development Environment.
+                            <br> The library contains components for managing input, database programming, and much much more. The complete list can be found at Oracles website: <a href="https://docs.oracle.com/javase/8/docs/api/">https://docs.oracle.com/javase/8/docs/api/ </a>.
+                            <br> The library is divided into packages and classes. Meaning you can either import a single class (along with its methods and attributes), or a whole package that contain all the classes that belong to the specified package.
+                            <br>
+                            <br> To use a class or a package from the library, you need to use the "import" keyword:
+                            <br><br> Syntax:
+                            <br>
+                            <code class="bg-slate-300">import package.name.Class;   // Import a single class
+                                <br>import package.name.*;   // Import the whole package 
+                            </code>
+
+                            <br>
+                            <br> To create your own package, you need to understand that Java uses a file system directory to store them. Just like folders on your computer:
+                            <br> Example:
+                            <br> --root, --mypack, --MyPackageClass.java
+
+                            <br><br> To create a package, use the "package" keyword:
+                            <br> Example: (MyPackageClass.java)
+                            <br>
+                            <code class="bg-slate-300">
+                                package mypack;
+                                <br>class MyPackageClass {
+                                    <br>  public static void main(String[] args) {
+                                        <br>    System.out.println("This is my package!");  }} 
+                            </code>
+                            <br><br> Save the file as MyPackageClass.java, and compile it:
+                            <br>
+                            <code class="bg-slate-300">
+                                C:\Users\Your Name>javac MyPackageClass.java 
+                            </code>
+                            <br> Then compile the package:
+                            <code class="bg-slate-300">
+                                C:\Users\Your Name>javac -d . MyPackageClass.java 
+                            </code>
+
+                            <br><br> When we compiled the package in the example above, a new folder was created, called "mypack".
+                            <br> To run the MyPackageClass.java file, write the following:
+                            <br>
+                            <code class="bg-slate-300">
+                                C:\Users\Your Name>java mypack.MyPackageClass 
+                            </code>
+                            <br> Then output will be:
+                            <code class="bg-slate-300">
+                                This is my package! 
+                            </code>
+                            <h2 class="main-content-heading">
+                                Access Modifiers
+                            </h2>
+                            <p class="main-content">
+                                The "public" keyword is an access modifier, meaning that it is used to set the access level for classes, attributes, methods and constructors
+                                <br><br> We divide modifiers into two groups:
+                                <ul class="list-disc">
+                                    <li><b>Access Modifiers</b> - controls the access level </li>
+                                    <li><b>Non-Access Modifiers</b> - do not control access level, but provides other functionality </li>
+                                </ul>
+
+                                <br><br>
+                                <table>
+                                    <tr>
+                                        <th>Modifier</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    <tr>
+                                        <td>public</td>
+                                        <td>The code is accessible for all classes </td>
+                                    </tr>
+                                    <tr>
+                                        <td>private</td>
+                                        <td>The code is only accessible within the declared class </td>
+                                    </tr>
+                                    <tr>
+                                        <td>default</td>
+                                        <td>The code is only accessible in the same package. <br>This is used when you don't specify a modifier.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>protected</td>
+                                        <td>The code is accessible in the same package and subclasses.</td>
+                                    </tr>
+                                </table>
+
+                            </p>
+                            <h2 class="main-content-heading" id="exception-handling">
+                                Exception Handling
+                            </h2>
+
+                            <p class="main-content">
+                                When executing Java code, different errors can occur: coding errors made by the programmer, errors due to wrong input, or other unforeseeable things.
+                                <br>When an error occurs, Java will normally stop and generate an error message. The technical term for this is: Java will throw an <b>exception</b> (throw an error)
+
+                                <br><br>
+                                <b>Java Try and Catch</b>
+                                <br> The "try" statement allows you to define a block of code to be tested for errors while it is being executed.
+                                <br>The "catch" statement allows you to define a block of code to be executed, if an error occurs in the try block.
+                                <br>The "try" and "catch" keywords come in pairs:
+
+                                <br><br> Syntax:
+                                <code class="bg-slate-300">
+                                    try {
+                                        <br>  //  Block of code to try
+                                        <br>}catch(Exception e) {<br>  //  Block of code to handle errors
+                                            <br>} 
+                                </code>
+
+                                <br><br>
+                                <b>Finally</b><br> The "finally" statement lets you execute code, after "try...catch", regardless of the result:
+
+                                <br><br> Example:
+                                <br>
+                                <code class="bg-slate-300">
+                                        <br>public class Main {
+                                            <br>  public static void main(String[] args) {
+                                                <br>    try {
+                                                    <br>      int[] myNumbers = {1, 2, 3};
+                                                    <br>      System.out.println(myNumbers[10]);
+                                                <br>    } catch (Exception e) {
+                                                    <br>      System.out.println("Something went wrong.");
+                                                    <br>    } finally {
+                                                        <br>      System.out.println("The 'try catch' is finished.");
+                                                        <br>    }  }} 
+                                </code>
+                            </p>
+
+                            <h2 class="main-content-heading" id="threads">
+                                Threads
+                                <br>
+                            </h2>
+                            <p class="main-content">
+                                Threads allows a program to operate more efficiently by doing multiple things at the same time.
+                                <br>Threads can be used to perform complicated tasks in the background without interrupting the main program.
+                                <br><br>
+                                <b>Creating A Thread</b>
+                                <br> There are two ways to create a thread.
+                                <br>It can be created by extending the Thread class and overriding its run() method:
+                                <br> Extend Syntax:<br>
+                                <code class="bg-slate-300">
+                                    public class Main extends Thread {
+                                        <br>  public void run() {
+                                            <br>    System.out.println("This code is running in a thread");
+                                            <br>  }} 
+                                </code>
+
+                                <br>
+                                <br>Another way to create a thread is to implement the Runnable interface:
+                                <br> Implement Syntax:<br>
+                                <code class="bg-slate-300">
+                                    public class Main implements Runnable {
+                                        <br>  public void run() {
+                                            <br>    System.out.println("This code is running in a thread");
+                                            <br>  }} 
+                                </code>
+
+                                <br><br>
+                                <b>Running Threads</b><br> If the class extends the "Thread" class, the thread can be run by creating an instance of the class and call its "start()" method:
+                                <br> Extend Example:
+                                <br>
+                                <code class="bg-slate-300">
+                                    public class Main extends Thread {
+                                        <br>  public static void main(String[] args) {
+                                            <br>    Main thread = new Main();
+                                            <br>    thread.start();
+                                            <br>    System.out.println("This code is outside of the thread");
+                                            <br>  }
+                                            <br>  public void run() {
+                                                <br>    System.out.println("This code is running in a thread");
+                                                <br>  }} 
+                                </code>
+
+                                <br><br> If the class implements the "Runnable" interface, the thread can be run by passing an instance of the class to a "Thread" object's constructor and then calling the thread's "start()"" method:
+                                <br> Implement Example:
+                                <br>
+                                <code class="bg-slate-300">
+                                    public class Main implements Runnable {
+                                        <br>  public static void main(String[] args) {
+                                            <br>    Main obj = new Main();
+                                            <br>    Thread thread = new Thread(obj);
+                                            <br>    thread.start();
+                                            <br>    System.out.println("This code is outside of the thread");
+                                            <br>  }
+                                            <br>  public void run() {
+                                                <br>    System.out.println("This code is running in a thread");<br>  }}
+                                </code>
+                            </p>
+                    </div>
+                </div>
+            </div>
+
+            <section x-data="slideout()" x-cloak @open-menu.window="open = $event.detail.open" @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
+                <div x-show.transition.opacity.duration.500="open" @click="open = false" class="fixed inset-0 bg-black bg-opacity-25"></div>
+                <div class="fixed transition duration-300 right-0 top-0 transform w-full max-w-xs h-screen bg-gray-100 overflow-hidden" :class="{'translate-x-full': !open}">
+                    <button @click="open = false" x-ref="closeButton" :class="{'focus:outline-none': !usedKeyboard}" class="fixed top-0 right-0 mr-4 mt-2 z-50">
+			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+		</button>
+                    <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+                        <div x-data="chatBot()">
+                            <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
+                                <div id="messages" class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
+                                    <template x-for="(message, key) in messages">
+                                    <div>
+                                        <div class="flex items-end" :class="message.from=='bot'?'':'justify-end'">
+                                            <div class="flex flex-col space-y-2 text-md leading-tight max-w-lg mx-2" :class="message.from=='bot'?'order-2 items-start':'order-1 items-end'">
+                                                <div>
+                                                    <span class="px-4 py-3 rounded-xl inline-block" :class="message.from=='bot'?'rounded-bl-none bg-gray-100 text-gray-600':'rounded-br-none bg-blue-500 text-white'" x-html="message.text"></span>
+                                                </div>
+                                            </div>
+                                            <img :src="message.from=='bot'?'https://cdn.icon-icons.com/icons2/1371/PNG/512/robot02_90810.png':'https://i.pravatar.cc/100?img=7'" alt="" class="w-6 h-6 rounded-full" :class="message.from=='bot'?'order-1':'order-2'">
+                                        </div>
+                                    </div>
+                                </template>
+                                    <div x-show="botTyping" style="display: none;">
+                                        <div class="flex items-end">
+                                            <div class="flex flex-col space-y-2 text-md leading-tight mx-2 order-2 items-start">
+                                                <div><img src="https://support.signal.org/hc/article_attachments/360016877511/typing-animation-3x.gif" alt="..." class="w-16 ml-6"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
+                                    <div class="relative flex">
+                                        <input type="text" placeholder="Say something..." autocomplete="off" autofocus="true" @keydown.enter="updateChat($event.target)" class="text-md w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-5 pr-16 bg-gray-100 border-2 border-gray-200 focus:border-blue-500 rounded-full py-2"
+                                            x-ref="input" />
+                                        <div class="absolute right-2 items-center inset-y-0 hidden sm:flex">
+                                            <button type="button" class="inline-flex items-center justify-center rounded-full h-8 w-8 transition duration-200 ease-in-out text-white bg-blue-500 hover:bg-blue-600 focus:outline-none" @click.prevent="updateChat($refs.input)">
+                                            <i class="mdi mdi-arrow-right text-xl leading-none"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <audio controls id="musicplay" hidden>
+                <source src="Course Data/java_audio.mp3" type="audio/mp3">
+            </audio>
+            <button id="btnplay" class="btnplay"><img src="images/musical-note.png" onclick="music()"></button>
+
+
+            <!-- Dev tools -->
+            <div id="alpine-devtools" x-data="devtools('left')" x-show="alpines.length" x-init="start()">
+            </div>
+            <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
+
+    </body>
+</hmtl>

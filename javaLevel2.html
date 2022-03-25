@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<hmtl>
+
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="demo.js"></script>
+        <link href="demo.css" rel="stylesheet">
+        <script src="//unpkg.com/alpinejs" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.3.4/dist/flowbite.min.css" />
+        <title>A3P Schools - Java Level 2</title>
+    </head>
+
+    <body>
+        <!-- The menu can be opened from anywhere by dispatching an event -->
+
+        <div class="min-h-screen bg-gray-100">
+
+            <header class="text-gray-600 body-font sticky top-0">
+                <div class="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center bg-gray-900">
+                    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                        <span class="ml-3 text-xl text-white">A3P Schools</span>
+                    </a>
+                    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-lg justify-center">
+                        <a class="mr-5 hover:underline text-white" href="homepage.html">Home</a>
+                        <a class="mr-5 hover:underline text-white" href="">Voice Assistant</a>
+                        <a class="mr-5 hover:underline text-white" href="https://college-daap.vercel.app/" target="_blank">Forum</a>
+                        <a class="mr-5 hover:underline text-white" href="">Text to Speech</a>
+                        <a class="mr-5 hover:underline text-white" x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}">Chatbot</a>
+                    </nav>
+                    <button x-data="{usedKeyboard: false}" @keydown.window.tab="usedKeyboard = true" @click="$dispatch('open-menu', { open: true })" :class="{'focus:outline-none': !usedKeyboard}">
+                        <img src="https://img.icons8.com/plasticine/50/000000/chat--v1.png"/>    
+                    </button>
+                </div>
+            </header>
+
+            <div class="flex flex-row">
+                <div class="basis-1/6 bg-slate-300 border-r-2 ">
+                    <!-- Dropdown 1-->
+                    <button id="dropdownButton" data-dropdown-toggle="dropdown" class="m-5 text-white bg-gray-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        type="button">Select Level
+                        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div id="dropdown" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                        <ul class="py-1" aria-labelledby="dropdownButton">
+                            <li>
+                                <a href="demo.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Level 1</a>
+                            </li>
+                            <li>
+                                <a href="javaLevel2.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Level 2</a>
+                            </li>
+                            <li>
+                                <a href="javaLevel3.html" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Level 3</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!--Dropdown 2
+                    <div class="mt-6 mx-3">
+                        <select class="text-xs bg-gray-900 text-white" id="dropdown" required onchange="showDiv(this)">
+                            <option selected value="l1">Level 1</option>
+                            <option value="l2">Level 2</option>
+                            <option value="l3">Level 3</option>
+                        </select>
+                    </div>
+                -->
+
+                    <div id="contents" class="ml-10 mb-5">
+                        <div id="level1" class="">
+                            <h2 class="text-xl my-5">
+                                Level 2:
+                            </h2>
+                            <ol class="list-decimal">
+                                <li>
+                                    <a href="#conditions">Conditional Statements and Loops</a>
+                                </li>
+                                <li>
+                                    <a href="#methods">Methods</a>
+                                </li>
+                                <li>
+                                    <a href="#classes">Classes and Objects</a>
+                                </li>
+                                <li>
+                                    <a href="#inheritance">Inheritance</a>
+                                </li>
+                                <li>
+                                    <a href="#interfaces">Interfaces</a>
+                                </li>
+                                <li>
+                                    <a href="#abstract-class">Abstract Classes</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="basis-5/6 bg-slate-200 p-8 overflow-hidden">
+                    <div>
+                        <h1 class="main-content-heading ">
+                            Level 2
+                            <h1 class="main-content-heading ">
+                                <h2 class="main-content-heading" id="conditions">
+                                    Conditional Statements and Loops
+                                </h2>
+                                <p class="main-content ">
+                                    Java supports the usual logical conditions from mathematics:
+                                    <br>
+
+                                    <ul class="list-disc ">
+                                        <li>Less than: a&lt;b </li>
+                                        <li>Less than or equal to: a&lt;=b </li>
+                                        <li>It is easy to learn and simple to use</li>
+                                        <li>Greater than: a &gt; b </li>
+                                        <li>Greater than or equal to: a &gt;= b </li>
+                                        <li>Equal to a == b </li>
+                                        <li>Not Equal to: a != b </li>
+                                    </ul>
+                                    <br> You can use these conditions to perform different actions for different decisions. <br> Java has the following conditional statements:
+                                    <ul class="list-disc ">
+                                        <li>Use "if " to specify a block of code to be executed, if a specified condition is true </li>
+                                        <li>Use "else " to specify a block of code to be executed, if the same condition is false </li>
+                                        <li>Use "else if " to specify a new condition to test, if the first condition is false </li>
+                                        <li>Use "switch " to specify many alternative blocks of code to be executed </li>
+                                    </ul>
+                                    <br><br> Use the "if " statement to specify a block of Java code to be executed if a condition is true.
+                                    <br> Syntax:
+                                    <br><code class="bg-slate-300 ">if (condition) {  // block of code to be executed if the condition is true} </code>
+
+                                    <br><br> Use the "else " statement to specify a block of code to be executed if the condition is false.
+                                    <br> Syntax:
+                                    <br><code class="bg-slate-300 ">if (condition) {  // block of code to be executed if the condition is true} <br>else {  // block of code to be executed if the condition is false} </code>
+
+                                    <br><br> Use the "else if " statement to specify a new condition if the first condition is false.
+                                    <br> Syntax:
+                                    <br><code class="bg-slate-300 ">if (condition1) {  // block of code to be executed if condition1 is true}<br> 
+                                        else if (condition2) {  // block of code to be executed if the condition1 is false and condition2 is true} <br>
+                                        else {  // block of code to be executed if the condition1 is false and condition2 is false}</code>
+
+                                    <br><br> Use the "switch " statement to select one of many code blocks to be executed.
+                                    <br> Syntax:
+                                    <br><code class="bg-slate-300 ">switch(expression) { <br> case x:    // code block    break;  <br>case y:    // code block    break;  <br>default:    // code block} </code>
+
+                                    <br><br><br>
+                                    <b>Loops</b><br> Loops can execute a block of code as long as a specified condition is reached.
+                                    <br> Loops are handy because they save time, reduce errors, and they make code more readable.
+
+                                    <br>
+                                    <br><b>Java While loop </b><br> The while loop loops through a block of code as long as a specified condition is true. <br> Syntax:
+                                    <br>
+                                    <code class="bg-slate-300 ">while (condition) {  // code block to be executed} </code><br>
+
+                                    <br><b>Java Do/While loop </b><br> The do/while loop is a variant of the while loop. <br> This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as
+                                    the condition is true. <br> Syntax:
+                                    <br>
+                                    <code class="bg-slate-300 ">do {  // code block to be executed}while (condition); </code> <br>
+
+                                    <br><b>Java For loop </b><br> When you know exactly how many times you want to loop through a block of code, use the for loop instead of a while loop: <br> Syntax:
+                                    <br>
+                                    <code class="bg-slate-300 ">for (statement 1; statement 2; statement 3) {  // code block to be executed} </code> <br>
+
+                                    <br><b>Break</b><br> The break statement can also be used to jump out of a loop.<br> This example stops the loop when i is equal to 4: <br> Example:
+                                    <br>
+                                    <code class="bg-slate-300 ">for (int i = 0; i < 10; i++) {<br>  if (i == 4) {    break;  }  <br>System.out.println(i);}  </code> <br>
+
+                                    <br><b>Continue</b><br> The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop. <br> This example skips the value of 4:
+                                    <br> Example:
+                                    <br>
+                                    <code class="bg-slate-300 ">for (int i = 0; i < 10; i++) { <br> if (i == 4) {    continue;  } <br> System.out.println(i);}   </code> <br>
+
+                                </p>
+                                <h2 class="main-content-heading " id="methods">
+                                    Methods
+                                </h2>
+                                <p class="main-content ">
+                                    A method is a block of code which only runs when it is called. You can pass data, known as parameters, into a method.
+                                    <br> Methods are used to perform certain actions, and they are also known as functions. Why use methods? To reuse code: define the code once, and use it many times.
+                                    <br>
+                                    <br> A method must be declared within a class. It is defined with the name of the method, followed by parentheses ().
+                                    <br>Java provides some pre-defined methods, such as "System.out.println() ", but you can also create your own methods to perform certain actions:
+                                    <br> Example: Creating a method inside Main:
+                                    <br>
+                                    <code class="bg-slate-300 ">public class Main {  <br>static void myMethod() {    // code to be executed  }}  </code>
+
+                                    <br>
+                                    <br>
+                                    <b>Call a Method</b><br> To call a method in Java, write the method's name followed by two parentheses () and a semicolon;
+                                    <br> Information can be passed to methods as parameter. Parameters act as variables inside the method.
+                                    <br> Parameters are specified after the method name, inside the parentheses. You can add as many parameters as you want, just separate them with a comma.
+                                    <br> With method overloading, multiple methods can have the same name with different parameters:
+                                    <br><br> Example:
+                                    <br>
+                                    <code class="bg-slate-300 ">int myMethod(int x)<br>float myMethod(float x)<br>double myMethod(double x, double y) </code>
+                                    <br>
+
+                                </p>
+                                <h2 class="main-content-heading " id="classes">
+                                    Classes and Objects
+                                </h2>
+                                <p class="main-content ">
+                                    A Class is like an object constructor, or a "blueprint " for creating objects.
+                                    <br><br>
+                                    <b>Create a Class</b>
+                                    <br> To create a class, use the keyword class.
+                                    <br><br> Example: Create a class named "Main " with a variable x:
+                                    <br>
+                                    <code class="bg-slate-300 ">public class Main {  int x = 5;} </code>
+                                    <br><br> In Java, an object is created from a class. We have already created the class named Main, so now we can use this to create objects.
+                                    <br> To create an object of Main, specify the class name, followed by the object name, and use the keyword new:
+                                    <br> Example: Create an object called "myObj " and print the value of x:
+                                    <code class="bg-slate-300 ">public class Main {  <br>int x = 5;  <br>public static void main(String[] args) {<br>    Main myObj = new Main();    <br>System.out.println(myObj.x);  }} </code>
+
+                                    <br><br> In the previous example, we used the term "variable " for x in the example. It is actually an attribute of the class
+                                    <br> You can access attributes by creating an object of the class, and by using the dot syntax (.)
+                                    <br> Java classes can also have methods, which can be static or non static
+
+                                </p>
+                                <h2 class="main-content-heading " id="inheritance">
+                                    Inheritance
+                                </h2>
+
+                                <p class="main-content ">
+                                    <b>Why use inheritance in java</b>
+                                    <br>
+                                    <ul class="list-disc ">
+                                        <li>For Method Overriding (so runtime polymorphism can be achieved)</li>
+                                        <li>Code reusability</li>
+                                    </ul>
+                                    <br><br>
+                                    <b>Types of Inheritance in Java</b>
+                                    <br> On the basis of class, there can be three types of inheritance in java: single, multilevel and hierarchical.<br> In java programming, multiple and hybrid inheritance is supported through interface only. <br>
+                                    <br>
+                                    <img>
+                                    <!--Please insert the image as mentioned in Data-->
+                                    <br> In Java, it is possible to inherit attributes and methods from one class to another.
+                                    <br>We group the "inheritance concept " into two categories:
+                                    <br>
+                                    <ul class="list-disc ">
+                                        <li><b>Subclass </b>(child) - the class that inherits from another class </li>
+                                        <li><b>Superclass</b> (parent) - the class being inherited from </li>
+                                    </ul>
+                                    <br> To inherit from a class, use the "extends " keyword.
+                                    <br><br> If you don't want other classes to inherit from a class, use the "final " keyword.
+                                    <br> If you try to access a final class, Java will generate an error.
+                                    <br><br> Example:
+                                    <br>
+                                    <code class="bg-slate-300 ">final class Vehicle {  ...}<br>class Car extends Vehicle {  ...} </code>
+                                </p>
+                                <h2 class="main-content-heading " id="interfaces">
+                                    Interfaces
+                                </h2>
+                                <p class="main-content ">
+                                    Another way to achieve abstraction in Java, is with interfaces.
+                                    <br>An interface is a completely "<b>abstract class</b>" that is used to group related methods with empty bodies:
+                                    <br><br> Example:
+                                    <br>
+                                    <code class="bg-slate-300">
+                                        // interface<br>interface Animal {  <br>public void animalSound(); // interface method (does not have a body)  <br>public void run(); // interface method (does not have a body)} 
+                                    </code>
+                                    <br><br> To access the interface methods, the interface must be "implemented" (like inherited) by another class with the implements keyword (instead of extends).
+                                    <br>The body of the interface method is provided by the "implement" class:
+                                    <br><br> Example:
+                                    <br>
+                                    <code class="bg-slate-300">
+                                    // Interface<br>
+                                    interface Animal {  
+                                        <br>public void animalSound(); 
+                                        <br>public void sleep(); // interface method (does not have a body)}
+                                        <br><br>// Pig "implements" the Animal interface
+                                        <br>class Pig implements Animal {  
+                                            <br>public void animalSound() {
+                                                <br>    // The body of animalSound() is provided here    
+                                                <br>System.out.println("The pig says: wee wee");  } 
+                                                <br><br> public void sleep() {    
+                                                    <br>// The body of sleep() is provided here    
+                                                    <br>System.out.println("Zzz");  }}
+                                                    <br><br>class Main {  
+                                                        <br>public static void main(String[] args) { 
+                                                            <br>   Pig myPig = new Pig();  // Create a Pig object    
+                                                            <br>myPig.animalSound();   
+                                                            <br> myPig.sleep();  }} 
+                                </code>
+
+                                </p>
+
+                                <h2 class="main-content-heading" id="abstract-class">
+                                    Abstract Classes
+                                </h2>
+
+                                <p class="main-content">
+                                    Data abstraction is the process of hiding certain details and showing only essential information to the user.
+                                    <br> Abstraction can be achieved with either abstract classes or interfaces.
+                                    <br><br> The "abstract" keyword is a non-access modifier, used for classes and methods:
+                                    <br>
+                                    <ul class="list-disc">
+                                        <li><b>Abstract Class</b>: A restricted class that cannot be used to create objects (to access it, it must be inherited from another class). </li>
+                                        <li><b>Abstract Method</b>: Can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from). </li>
+                                    </ul>
+                                    <br><br> An abstract class can have both abstract and regular methods:
+                                    <br><br> Syntax:
+                                    <br>
+                                    <code class="bg-slate-300">
+                                        abstract class Animal {  <br>public abstract void animalSound(); <br>public void sleep() {    <br>System.out.println("Zzz");  }} 
+                                    </code>
+
+                                    <br><br> Example:
+                                    <br>
+                                    <code class="bg-slate-300">
+                                    // Abstract class<br>abstract class Animal {  
+                                        <br>// Abstract method (does not have a body)  <br>public abstract void animalSound();  
+                                        <br><br>// Regular method  <br>public void sleep() {<br>    System.out.println("Zzz");  }}
+                                        <br><br>// Subclass (inherit from Animal) 
+                                        <br>class Pig extends Animal {  
+                                            <br>public void animalSound() {    
+                                                <br>// The body of animalSound() is provided here    
+                                                <br>System.out.println("The pig says: wee wee");  }}
+                                                <br>
+                                                <br>class Main {  
+                                                    <br>public static void main(String[] args) {    
+                                                        <br>Pig myPig = new Pig(); // Create a Pig object    
+                                                        <br>myPig.animalSound();    
+                                                        <br>myPig.sleep();  }}                         
+                                    </code>
+                                </p>
+                    </div>
+                </div>
+            </div>
+
+            <section x-data="slideout()" x-cloak @open-menu.window="open = $event.detail.open" @keydown.window.tab="usedKeyboard = true" @keydown.escape="open = false" x-init="init()">
+                <div x-show.transition.opacity.duration.500="open" @click="open = false" class="fixed inset-0 bg-black bg-opacity-25"></div>
+                <div class="fixed transition duration-300 right-0 top-0 transform w-full max-w-xs h-screen bg-gray-100 overflow-hidden" :class="{'translate-x-full': !open}">
+                    <button @click="open = false" x-ref="closeButton" :class="{'focus:outline-none': !usedKeyboard}" class="fixed top-0 right-0 mr-4 mt-2 z-50">
+			<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+		</button>
+                    <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+                        <div x-data="chatBot()">
+                            <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
+                                <div id="messages" class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
+                                    <template x-for="(message, key) in messages">
+                                    <div>
+                                        <div class="flex items-end" :class="message.from=='bot'?'':'justify-end'">
+                                            <div class="flex flex-col space-y-2 text-md leading-tight max-w-lg mx-2" :class="message.from=='bot'?'order-2 items-start':'order-1 items-end'">
+                                                <div>
+                                                    <span class="px-4 py-3 rounded-xl inline-block" :class="message.from=='bot'?'rounded-bl-none bg-gray-100 text-gray-600':'rounded-br-none bg-blue-500 text-white'" x-html="message.text"></span>
+                                                </div>
+                                            </div>
+                                            <img :src="message.from=='bot'?'https://cdn.icon-icons.com/icons2/1371/PNG/512/robot02_90810.png':'https://i.pravatar.cc/100?img=7'" alt="" class="w-6 h-6 rounded-full" :class="message.from=='bot'?'order-1':'order-2'">
+                                        </div>
+                                    </div>
+                                </template>
+                                    <div x-show="botTyping" style="display: none;">
+                                        <div class="flex items-end">
+                                            <div class="flex flex-col space-y-2 text-md leading-tight mx-2 order-2 items-start">
+                                                <div><img src="https://support.signal.org/hc/article_attachments/360016877511/typing-animation-3x.gif" alt="..." class="w-16 ml-6"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
+                                    <div class="relative flex">
+                                        <input type="text" placeholder="Say something..." autocomplete="off" autofocus="true" @keydown.enter="updateChat($event.target)" class="text-md w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-5 pr-16 bg-gray-100 border-2 border-gray-200 focus:border-blue-500 rounded-full py-2"
+                                            x-ref="input" />
+                                        <div class="absolute right-2 items-center inset-y-0 hidden sm:flex">
+                                            <button type="button" class="inline-flex items-center justify-center rounded-full h-8 w-8 transition duration-200 ease-in-out text-white bg-blue-500 hover:bg-blue-600 focus:outline-none" @click.prevent="updateChat($refs.input)">
+                                            <i class="mdi mdi-arrow-right text-xl leading-none"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <audio controls id="musicplay" hidden>
+                <source src="Course Data/java_audio.mp3" type="audio/mp3">
+            </audio>
+            <button id="btnplay" class="btnplay"><img src="images/musical-note.png" onclick="music()"></button>
+
+            <!-- Dev tools -->
+            <div id="alpine-devtools" x-data="devtools('left')" x-show="alpines.length" x-init="start()">
+            </div>
+            <script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
+
+    </body>
+</hmtl>

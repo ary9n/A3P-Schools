@@ -55,8 +55,8 @@ function runSpeechRecognition() {
             } else if (transcript.indexOf("date") > -1 && transcript.indexOf("tomorrow") > -1) {
                 d.setDate(d.getDate() + 1)
                 textToSpeak = `Tomorrow will be ${d.getDate()} of ${meses[d.getMonth()]}`;
-            } else if (transcript.indexOf("good") > -1 && transcript.indexOf(" teacher") > -1) {
-                textToSpeak = `Miss Geeta is a good teacher`;
+            } else if (transcript.indexOf("best") > -1 && transcript.indexOf(" teacher") > -1) {
+                textToSpeak = `Miss Geeta is the best teacher`;
             } else if (transcript === "hi" || transcript === "hello") {
                 textToSpeak = `hello`;
             } else if ((transcript.indexOf("what") > -1 || transcript.indexOf("what") > -1) && transcript.indexOf("name") > -1) {
